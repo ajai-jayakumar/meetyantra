@@ -1,3 +1,7 @@
+// This configuration file specifies the ESLint rules used in this project.
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals", // Extends the recommended rules for Next.js projects, including core web vitals checks.
+    "plugin:react-hooks/recommended" // Extends the recommended rules for using React Hooks.
+  ]
 }
