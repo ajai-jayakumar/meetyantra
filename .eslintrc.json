@@ -1,7 +1,7 @@
 // This configuration file specifies the ESLint rules used in this project.
 {
-  // Enable root mode for ESLint to stop searching for configuration files in parent directories
-  "root": true,
+  "root": true, // Enable root mode for ESLint
+
   // Define the environment for the code (browser and ES2020)
   "env": {
     "browser": true,
@@ -10,8 +10,31 @@
   // Extend ESLint configurations to include recommended presets for Next.js, React Hooks, etc.
   "extends": [
     "next/core-web-vitals", // Extends the recommended rules for Next.js projects, including core web vitals checks.
-    "plugin:react-hooks/recommended" // Extends the recommended rules for using React Hooks.
+    "plugin:react-hooks/recommended", // Extends the recommended rules for using React Hooks.
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
   ],
+  // Define ESLint plugins used in the project (react-hooks, import)
+  "plugins": ["react-hooks", "import", "simple-import-sort"],
+  "rules": {
+    // Enable the simple-import-sort plugin for import sorting and set it to throw an error for violations
+    "simple-import-sort/imports": "error",
+    // Enable the simple-import-sort plugin for export sorting and set it to throw an error for violations
+    "simple-import-sort/exports": "error",
+    // Enable no-unused-vars rule to catch unused variables
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true,
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    // Disable react/react-in-jsx-scope rule to allow JSX without importing React
+    "react/react-in-jsx-scope": "off"
+  },
   // Configure settings for ESLint (React version detection, import resolver settings)
   "settings": {
     "react": {
@@ -24,5 +47,35 @@
     "ecmaVersion": 2020
   },
   // Define patterns to ignore for linting
-  "ignorePatterns": [".eslintrc.json"]
+  "ignorePatterns": [".eslintrc.json"],
+  // Define overrides for specific file types (JavaScript, TypeScript, JSX, TSX)
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+      // Configure ESLint to use the simple-import-sort plugin for import sorting in JavaScript and TypeScript files
+      "rules": {
+        "simple-import-sort/imports": [
+          // Enable the rule and set it to throw an error for violations
+          "error",
+          {
+            // Define groups for sorting imports
+            "groups": [
+              // Group 1: React and other third-party libraries
+              ["^react", "^@?\\w"],
+              // Group 2: Internal imports from specific directories (e.g., @, components)
+              ["^(@|components)(/.*|$)"],
+              // Group 3: Side-effect imports (e.g., CSS files)
+              ["^\\u0000"],
+              // Group 4: Parent imports (up one or two levels)
+              ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+              // Group 5: Same-folder imports (relative imports with subfolders)
+              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+              // Group 6: Style imports (e.g., CSS files)
+              ["^.+\\.?(css)$"]
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }
