@@ -1,7 +1,28 @@
 // This configuration file specifies the ESLint rules used in this project.
 {
+  // Enable root mode for ESLint to stop searching for configuration files in parent directories
+  "root": true,
+  // Define the environment for the code (browser and ES2020)
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  // Extend ESLint configurations to include recommended presets for Next.js, React Hooks, etc.
   "extends": [
     "next/core-web-vitals", // Extends the recommended rules for Next.js projects, including core web vitals checks.
     "plugin:react-hooks/recommended" // Extends the recommended rules for using React Hooks.
-  ]
+  ],
+  // Configure settings for ESLint (React version detection, import resolver settings)
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  // Define parser options for ESLint (source type and ECMAScript version)
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020
+  },
+  // Define patterns to ignore for linting
+  "ignorePatterns": [".eslintrc.json"]
 }
