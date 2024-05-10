@@ -13,10 +13,13 @@
     "plugin:react-hooks/recommended", // Extends the recommended rules for using React Hooks.
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
   // Define ESLint plugins used in the project (react-hooks, import)
-  "plugins": ["react-hooks", "import", "simple-import-sort"],
+  "plugins": ["react-hooks", "import", "simple-import-sort", "@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
   "rules": {
     // Enable the simple-import-sort plugin for import sorting and set it to throw an error for violations
     "simple-import-sort/imports": "error",
