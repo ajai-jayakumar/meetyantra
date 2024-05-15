@@ -8,9 +8,9 @@ import NavItem from './NavItem';
 
 const NavBar = () => {
   return (
-    <nav className='flex w-1/5 flex-col justify-between bg-slate-100 p-4'>
+    <nav className='flex w-1/6 flex-col justify-between bg-slate-100 p-4'>
       <div>
-        <h1 className='mb-4 flex items-center gap-2 p-4 text-2xl'>
+        <h1 className='mb-4 flex items-center gap-2 p-4 text-xl'>
           <Image src='/logo.svg' alt='MeetYantra' width={40} height={40} />
           Meet Yantra
         </h1>
