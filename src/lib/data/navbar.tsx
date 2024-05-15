@@ -1,12 +1,4 @@
-import {
-  IoCalendarNumberOutline,
-  IoCogOutline,
-  IoConstructOutline,
-  IoHomeOutline,
-  IoPeopleOutline,
-  IoPricetagOutline,
-  IoSettingsOutline,
-} from 'react-icons/io5';
+import { CalendarDays, Cog, HandCoins, Home, Presentation, Settings, Wrench } from 'lucide-react';
 
 export interface NavBarItem {
   label: string;
@@ -18,37 +10,37 @@ const NavBarItems: NavBarItem[] = [
   {
     label: 'Home',
     path: '/',
-    icon: <IoHomeOutline />,
+    icon: <Home size={16} />,
   },
   {
     label: 'Calendar',
     path: '/',
-    icon: <IoCalendarNumberOutline />,
+    icon: <CalendarDays size={16} />,
   },
   {
     label: 'Meetings',
     path: '/',
-    icon: <IoPeopleOutline />,
+    icon: <Presentation size={16} />,
   },
   {
     label: 'Actions',
     path: '/',
-    icon: <IoCogOutline />,
+    icon: <Cog size={16} />,
   },
   {
     label: 'Integrations',
     path: '/',
-    icon: <IoConstructOutline />,
+    icon: <Wrench size={16} />,
   },
   {
     label: 'Pricing',
     path: '/',
-    icon: <IoPricetagOutline />,
+    icon: <HandCoins size={16} />,
   },
   {
     label: 'Settings',
     path: '/',
-    icon: <IoSettingsOutline />,
+    icon: <Settings size={16} />,
   },
 ];
 
