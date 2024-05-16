@@ -1,3 +1,10 @@
+import TopBar from '@/components/layouts/HomeTopBar/HomeTopBar';
+
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <div>
+      <TopBar />
+      Home
+    </div>
+  );
 }
