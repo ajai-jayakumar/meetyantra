@@ -1,4 +1,4 @@
-import { ChatBox, SuggestedTopics, TopBar } from '@/components';
+import { ChatBot, SuggestedTopics, TopBar } from '@/components';
 
 export default function Home() {
   return (
@@ -6,11 +6,7 @@ export default function Home() {
       <header>
         <TopBar />
       </header>
-      <section>
-        <SuggestedTopics />
-      </section>
-      <section className='flex-grow rounded-xl border border-neutral-300'>
-        <ChatBox />
+          <ChatBot />
       </section>
     </main>
   );
