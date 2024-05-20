@@ -6,7 +6,13 @@ export default function Home() {
       <header>
         <TopBar />
       </header>
+      <section className='flex flex-grow rounded-xl border border-neutral-300'>
+        <div className='w-1/5 border-r'>
+          <SuggestedTopics />
+        </div>
+        <div className='w-full'>
           <ChatBot />
+        </div>
       </section>
     </main>
   );
