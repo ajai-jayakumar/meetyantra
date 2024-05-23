@@ -1,17 +1,25 @@
+'use client';
+
 import { ArrowUp } from 'lucide-react';
 import Image from 'next/image';
 
-import { Button } from '@/components';
-import { Input } from '@/components/ui/input';
+import { Button, Input } from '@/components';
+import { useGetSuggestedPrompts } from '@/hooks/useGetSuggestedPrompts';
+import { useChatBotStore } from '@/store/chatBotStore';
 
 import GridLayout from './templates/GridLayout';
-// import PlaceHolder from './PlaceHolder';
 
 const ChatBot = () => {
+  const topicId = useChatBotStore(state => state.suggestedTopicId);
+  const { isPending, error, data } = useGetSuggestedPrompts(topicId);
+
+  if (isPending) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  if (!data) return null;
+
   return (
     <div className='flex h-full flex-col justify-between'>
-      {/* <PlaceHolder /> */}
-      <GridLayout />
+      <GridLayout data={data} />
       <div className='inherit px-8'>
         <p className='mb-2 flex justify-end gap-1 text-primary'>
           <Image src='/assets/images/brush.svg' alt='magic-brush' width={24} height={24} />

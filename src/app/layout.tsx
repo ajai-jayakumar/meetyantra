@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 
 import { NavBar } from '@/components';
 
+import Provider from './providers';
+
 import '@/styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -24,7 +26,9 @@ export default function RootLayout({
           <nav className='flex w-1/6 flex-col justify-between bg-slate-100 p-4'>
             <NavBar />
           </nav>
-          <main className='w-full p-8'>{children}</main>
+          <main className='w-full p-8'>
+            <Provider>{children}</Provider>
+          </main>
         </div>
       </body>
     </html>
