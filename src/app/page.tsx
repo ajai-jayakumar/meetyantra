@@ -1,11 +1,8 @@
-import { ChatBot, SuggestedTopics, TopBar } from '@/components';
+import { ChatBot, SuggestedTopics } from '@/components';
 
 export default function Home() {
   return (
-    <main className='flex h-[calc(100vh-4rem)] flex-col'>
-      <header>
-        <TopBar />
-      </header>
+    <div className='flex h-[calc(100vh-8rem)] flex-col'>
       <section className='flex flex-grow rounded-xl border border-neutral-300'>
         <div className='w-1/5 border-r'>
           <SuggestedTopics />
@@ -14,6 +11,6 @@ export default function Home() {
           <ChatBot />
         </div>
       </section>
-    </main>
+    </div>
   );
 }

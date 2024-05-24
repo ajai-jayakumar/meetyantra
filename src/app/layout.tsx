@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import { NavBar } from '@/components';
+import { NavBar, TopBar } from '@/components';
 
 import Provider from './providers';
 
@@ -22,11 +22,14 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <div className='flex h-dvh flex-row'>
+        <div className='flex'>
           <nav className='flex w-1/6 flex-col justify-between bg-slate-100 p-4'>
             <NavBar />
           </nav>
           <main className='w-full p-8'>
+            <header>
+              <TopBar />
+            </header>
             <Provider>{children}</Provider>
           </main>
         </div>
