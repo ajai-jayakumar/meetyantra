@@ -1,7 +1,9 @@
 'use client';
 
+import { memo, useCallback } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
 import { Button } from '@/components';
-import { useChatBotStore } from '@/store/chatBotStore';
 import { SuggestedTopics } from '@/types/api';
 
 interface SuggestedItemProps {
@@ -9,11 +11,24 @@ interface SuggestedItemProps {
 }
 
 const SuggestedItem = ({ data }: SuggestedItemProps) => {
-  const activeTopic = useChatBotStore(state => state.suggestedTopicId);
-  const setTopicId = useChatBotStore(state => state.updateSuggestedTopicId);
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const topicId = searchParams.get('topic');
+
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set(name, value);
+
+      return params.toString();
+    },
+    [searchParams]
+  );
 
   const handleTopicClick = (id: string) => {
-    setTopicId(id);
+    router.push(pathname + '?' + createQueryString('topic', id));
   };
 
   return (
@@ -21,11 +36,11 @@ const SuggestedItem = ({ data }: SuggestedItemProps) => {
       {data.map(topic => (
         <li
           key={topic.id}
-          className={`bg-red rounded p-4 py-4 ${activeTopic === topic.id ? 'bg-secondary text-white' : ''}`}
+          className={`bg-red rounded p-4 py-4 ${topicId === topic.id ? 'bg-secondary text-white' : ''}`}
         >
           <Button
             variant='ghost'
-            className={`h-auto w-full justify-start p-0 ${activeTopic === topic.id ? 'hover:text-white' : ''}`}
+            className={`h-auto w-full justify-start p-0 ${topicId === topic.id ? 'hover:text-white' : ''}`}
             onClick={() => handleTopicClick(topic.id)}
           >
             {topic.title}
@@ -36,4 +51,4 @@ const SuggestedItem = ({ data }: SuggestedItemProps) => {
   );
 };
 
-export default SuggestedItem;
+export default memo(SuggestedItem);
