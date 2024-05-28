@@ -1,8 +1,7 @@
-export interface SuggestedTopics {
+export interface Topics {
   id: string;
-  title: string;
-  create_time: string;
-  is_archived: boolean;
+  topic: string;
+  path: string;
 }
 
 export interface SuggestedPrompts {

@@ -1,9 +1,9 @@
-export interface NavBarItem {
+export interface NavBarItemProps {
   label: string;
   path: string;
 }
 
-const NavBarItems: NavBarItem[] = [
+const NavBarItems: NavBarItemProps[] = [
   {
     label: 'Home',
     path: '/',

@@ -2,7 +2,7 @@ import React from 'react';
 import { CalendarDays, Cog, HandCoins, Home, Presentation, Settings, Wrench } from 'lucide-react';
 import Link from 'next/link';
 
-import { NavBarItem } from '@/lib/data/navbar';
+import { NavBarItemProps } from '@/lib/data/navbar';
 
 const getIcon = (icon: string) => {
   switch (icon) {
@@ -25,7 +25,7 @@ const getIcon = (icon: string) => {
   }
 };
 
-const NavLinkItem = (props: NavBarItem) => {
+const NavLinkItem = (props: NavBarItemProps) => {
   return (
     <Link
       href={props.path}
