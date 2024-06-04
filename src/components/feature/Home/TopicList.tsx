@@ -19,7 +19,7 @@ const TopicList = ({ data }: TopicListProps) => {
         return (
           <li
             key={topic.id}
-            className={`bg-red cursor-pointer rounded p-4 py-4 hover:bg-stone-100 ${isRouteActive ? 'bg-indigo-300 text-white hover:bg-indigo-300' : ''}`}
+            className={`bg-red cursor-pointer rounded p-4 py-4  ${isRouteActive ? 'bg-indigo-300 text-white hover:bg-indigo-300' : 'hover:bg-stone-100'}`}
           >
             <Link href={`/t/${topic.path}`} className='h-auto w-full justify-start p-0'>
               {topic.topic}

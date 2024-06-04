@@ -3,10 +3,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components';
-import { NavBarItems } from '@/lib/data/navbar';
+import { SideNavItems } from '@/lib/data/SideNavBar';
 
 const NavItem: React.FC<{ isSideBarExpanded: boolean }> = ({ isSideBarExpanded }) => {
-  const navItems = NavBarItems();
+  const navItems = SideNavItems();
 
   if (isSideBarExpanded) {
     return (
@@ -20,7 +20,7 @@ const NavItem: React.FC<{ isSideBarExpanded: boolean }> = ({ isSideBarExpanded }
             <li key={item.label}>
               <Link
                 href={item.href}
-                className={`mb-1 flex items-center justify-start gap-4 rounded-lg p-4 text-neutral-500 hover:bg-indigo-100 hover:text-primary ${item.active ? 'bg-indigo-100 text-blue-600' : ''}`}
+                className={`mb-1 flex items-center justify-start gap-4 rounded-lg p-4  hover:bg-indigo-100 hover:text-primary ${item.active ? 'bg-indigo-100 text-primary' : 'text-neutral-500'}`}
               >
                 <span>{item.icon}</span>
                 <span>{item.label}</span>
@@ -42,7 +42,7 @@ const NavItem: React.FC<{ isSideBarExpanded: boolean }> = ({ isSideBarExpanded }
           <li key={item.label}>
             <Link
               href={item.href}
-              className={`mb-1 flex items-center justify-center rounded-lg py-4 text-neutral-500 hover:bg-indigo-100 hover:text-primary ${item.active ? 'bg-indigo-100 text-blue-600' : ''}`}
+              className={`mb-1 flex items-center justify-center rounded-lg py-4  hover:bg-indigo-100 hover:text-primary ${item.active ? 'bg-indigo-100 text-primary' : 'text-neutral-500'}`}
             >
               <TooltipProvider>
                 <Tooltip>

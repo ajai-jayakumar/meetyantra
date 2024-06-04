@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import { NavBar, TopBar } from '@/components';
+import { SideNav, TopBar } from '@/components';
 
 import Provider from './providers';
 
@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <div className='flex'>
-          <NavBar />
+          <SideNav />
           <main className='w-full p-8'>
             <header>
               <TopBar />

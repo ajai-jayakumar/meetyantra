@@ -2,14 +2,14 @@ import { type ReactElement } from 'react';
 import { CalendarDays, Cog, HandCoins, Home, Presentation, Settings, Wrench } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
-export interface NavBarItemProps {
+export interface SideNavItemProps {
   label: string;
   href: string;
   icon: ReactElement;
   active: boolean;
 }
 
-export const NavBarItems = (): NavBarItemProps[] => {
+export const SideNavItems = (): SideNavItemProps[] => {
   const pathname = usePathname();
 
   const isNavItemActive = (nav: string) => {

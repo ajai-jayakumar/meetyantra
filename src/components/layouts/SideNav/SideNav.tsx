@@ -7,7 +7,7 @@ import { Referral } from '@/components';
 
 import NavItem from './NavItem';
 
-const NavBar = () => {
+const SideNav = () => {
   const [isSideBarExpanded, setIsSideBarExpanded] = useState(true);
 
   const toggleSideBar = () => {
@@ -21,9 +21,9 @@ const NavBar = () => {
       <div className='absolute right-[-24px] top-7 bg-white drop-shadow-md'>
         <button className='px-1 py-4' onClick={toggleSideBar}>
           {isSideBarExpanded ? (
-            <ArrowLeftToLine size={16} className='text-blue-600' />
+            <ArrowLeftToLine size={16} className='text-primary' />
           ) : (
-            <ArrowRightToLine size={16} className='text-blue-600' />
+            <ArrowRightToLine size={16} className='text-primary' />
           )}
         </button>
       </div>
@@ -36,4 +36,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default SideNav;
