@@ -23,9 +23,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <div className='flex'>
-          <nav className='flex w-1/6 flex-col justify-between bg-slate-100 p-4'>
-            <NavBar />
-          </nav>
+          <NavBar />
           <main className='w-full p-8'>
             <header>
               <TopBar />

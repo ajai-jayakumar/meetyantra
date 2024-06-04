@@ -1,40 +1,65 @@
 import React from 'react';
-import { CalendarDays, Cog, HandCoins, Home, Presentation, Settings, Wrench } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
-import { NavBarItemProps } from '@/lib/data/navbar';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components';
+import { NavBarItems } from '@/lib/data/navbar';
 
-const getIcon = (icon: string) => {
-  switch (icon) {
-    case 'Home':
-      return <Home size={16} />;
-    case 'Calendar':
-      return <CalendarDays size={16} />;
-    case 'Meetings':
-      return <Presentation size={16} />;
-    case 'Actions':
-      return <Cog size={16} />;
-    case 'Integrations':
-      return <Wrench size={16} />;
-    case 'Pricing':
-      return <HandCoins size={16} />;
-    case 'Settings':
-      return <Settings size={16} />;
-    default:
-      return <Home size={16} />;
+const NavItem: React.FC<{ isSideBarExpanded: boolean }> = ({ isSideBarExpanded }) => {
+  const navItems = NavBarItems();
+
+  if (isSideBarExpanded) {
+    return (
+      <>
+        <h1 className='mb-1 flex items-center gap-2 p-4 text-lg'>
+          <Image src='/assets/images/logo.svg' alt='MeetYantra' width={40} height={40} />
+          Meet Yantra
+        </h1>
+        <ul>
+          {navItems.map(item => (
+            <li key={item.label}>
+              <Link
+                href={item.href}
+                className={`mb-1 flex items-center gap-4 rounded-lg p-4 text-neutral-500 hover:bg-indigo-100 hover:text-primary ${item.active ? 'bg-indigo-100 text-blue-600' : ''}`}
+              >
+                <span>{item.icon}</span>
+                <span>{item.label}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </>
+    );
   }
-};
 
-const NavLinkItem = (props: NavBarItemProps) => {
   return (
-    <Link
-      href={props.path}
-      className=' flex items-center gap-4 p-4 text-neutral-500 duration-500 hover:rounded-lg hover:bg-indigo-100 hover:text-primary'
-    >
-      <span>{getIcon(props.label)}</span>
-      <span>{props.label}</span>
-    </Link>
+    <>
+      <h1 className='mb-1 flex items-center py-4 text-lg'>
+        <Image src='/assets/images/logo.svg' alt='MeetYantra' width={40} height={40} />
+      </h1>
+      <ul>
+        {navItems.map(item => (
+          <li
+            key={item.label}
+            className={`mb-1 flex h-[58px] items-center justify-center rounded-lg py-4 text-neutral-500 hover:text-blue-600 ${item.active ? 'text-blue-600' : ''}`}
+          >
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Link key={item.label} href={item.href}>
+                    <span>{item.icon}</span>
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent side='right'>
+                  <span>{item.label}</span>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 
-export default NavLinkItem;
+export default NavItem;

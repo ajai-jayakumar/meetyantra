@@ -17,7 +17,7 @@ const PromptSuggestions: React.FC<PromptSuggestionsProps> = async props => {
       <h2 className='mb-9 text-2xl'>Good day! How may I assist you today?</h2>
       <ul className='grid grid-cols-[repeat(2,minmax(100px,300px))] justify-center gap-5'>
         {prompts.map(item => (
-          <li key={item} className='h-[100px] content-center rounded-xl border p-4 text-gray-800'>
+          <li key={item} className='h-[100px] cursor-pointer content-center rounded-xl border p-4 text-gray-800'>
             {item}
           </li>
         ))}

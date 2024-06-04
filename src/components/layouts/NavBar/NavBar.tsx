@@ -1,26 +1,38 @@
-import Image from 'next/image';
+'use client';
+
+import { useState } from 'react';
+import { ArrowLeftToLine, ArrowRightToLine } from 'lucide-react';
 
 import { Referral } from '@/components';
-import NavBarItems from '@/lib/data/navbar';
 
 import NavItem from './NavItem';
 
 const NavBar = () => {
+  const [isSideBarExpanded, setIsSideBarExpanded] = useState(true);
+
+  const toggleSideBar = () => {
+    setIsSideBarExpanded(!isSideBarExpanded);
+  };
+
   return (
-    <>
-      <div>
-        <h1 className='mb-1 flex items-center gap-2 p-4 text-lg'>
-          <Image src='/assets/images/logo.svg' alt='MeetYantra' width={40} height={40} />
-          Meet Yantra
-        </h1>
-        <ul>
-          {NavBarItems.map(item => {
-            return <NavItem key={item.label} {...item} />;
-          })}
-        </ul>
+    <nav
+      className={`relative flex flex-col items-center justify-between bg-slate-100 duration-100 ${isSideBarExpanded ? 'w-1/6 p-4' : 'w-[60px] py-4'}`}
+    >
+      <div className='absolute right-[-24px] top-7 bg-white drop-shadow-md'>
+        <button className='mx-1 my-4' onClick={toggleSideBar}>
+          {isSideBarExpanded ? (
+            <ArrowLeftToLine size={16} className='text-blue-600' />
+          ) : (
+            <ArrowRightToLine size={16} className='text-blue-600' />
+          )}
+        </button>
       </div>
-      <Referral />
-    </>
+
+      <div>
+        <NavItem isSideBarExpanded={isSideBarExpanded} />
+      </div>
+      {isSideBarExpanded && <Referral />}
+    </nav>
   );
 };
 

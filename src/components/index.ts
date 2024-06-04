@@ -6,3 +6,4 @@ export { default as NavBar } from './layouts/NavBar/NavBar';
 export { Badge, badgeVariants } from './ui/badge';
 export { Button, buttonVariants } from './ui/button';
 export { Input } from './ui/input';
+export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
