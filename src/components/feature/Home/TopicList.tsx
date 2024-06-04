@@ -3,10 +3,10 @@
 import { memo } from 'react';
 import Link from 'next/link';
 
-import { Topics } from '@/types/api';
+import { IChatTopics } from '@/types/api';
 
 interface TopicListProps {
-  data: Topics[];
+  data: IChatTopics[];
 }
 
 const TopicList = ({ data }: TopicListProps) => {
