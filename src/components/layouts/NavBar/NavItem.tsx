@@ -20,7 +20,7 @@ const NavItem: React.FC<{ isSideBarExpanded: boolean }> = ({ isSideBarExpanded }
             <li key={item.label}>
               <Link
                 href={item.href}
-                className={`mb-1 flex items-center gap-4 rounded-lg p-4 text-neutral-500 hover:bg-indigo-100 hover:text-primary ${item.active ? 'bg-indigo-100 text-blue-600' : ''}`}
+                className={`mb-1 flex items-center justify-start gap-4 rounded-lg p-4 text-neutral-500 hover:bg-indigo-100 hover:text-primary ${item.active ? 'bg-indigo-100 text-blue-600' : ''}`}
               >
                 <span>{item.icon}</span>
                 <span>{item.label}</span>
@@ -39,22 +39,22 @@ const NavItem: React.FC<{ isSideBarExpanded: boolean }> = ({ isSideBarExpanded }
       </h1>
       <ul>
         {navItems.map(item => (
-          <li
-            key={item.label}
-            className={`mb-1 flex h-[58px] items-center justify-center rounded-lg py-4 text-neutral-500 hover:text-blue-600 ${item.active ? 'text-blue-600' : ''}`}
-          >
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger>
-                  <Link key={item.label} href={item.href}>
+          <li key={item.label}>
+            <Link
+              href={item.href}
+              className={`mb-1 flex items-center justify-center rounded-lg py-4 text-neutral-500 hover:bg-indigo-100 hover:text-primary ${item.active ? 'bg-indigo-100 text-blue-600' : ''}`}
+            >
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>
                     <span>{item.icon}</span>
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent side='right'>
-                  <span>{item.label}</span>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+                  </TooltipTrigger>
+                  <TooltipContent side='right'>
+                    <span>{item.label}</span>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </Link>
           </li>
         ))}
       </ul>
