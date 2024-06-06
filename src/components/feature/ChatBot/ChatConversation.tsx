@@ -2,6 +2,9 @@ import { IChatConversation } from '@/types/api';
 
 import BotMessageLayout from './messageLayout/bot';
 import UserMessageLayout from './messageLayout/user';
+import TypeDetails from './templates/TypeDetails';
+import TypeListMeetings from './templates/TypeListMeetings';
+import TypeMeeting from './templates/TypeMeeting';
 
 type MessageLayoutComponent = React.FC<IChatConversation>;
 
@@ -21,6 +24,9 @@ const ChatConversation: React.FC<{ data: IChatConversation[] }> = ({ data }) => 
           </div>
         );
       })}
+      <TypeListMeetings />
+      <TypeMeeting />
+      <TypeDetails />
     </div>
   );
 };

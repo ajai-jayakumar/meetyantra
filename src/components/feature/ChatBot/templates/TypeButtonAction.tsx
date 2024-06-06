@@ -1,3 +1,4 @@
+import { Button } from '@/components';
 import { IResponseDetails } from '@/types/api';
 
 const TypeButtonAction = ({ children }: { children: IResponseDetails }) => {
@@ -5,12 +6,14 @@ const TypeButtonAction = ({ children }: { children: IResponseDetails }) => {
     return (
       <>
         {children.map((item: { label: string }) => (
-          <button key={item.label}>{item.label}</button>
+          <Button key={item.label} className='mr-2'>
+            {item.label}
+          </Button>
         ))}
       </>
     );
   }
-  return null; // Add a return statement for non-array `options`
+  return null;
 };
 
 export default TypeButtonAction;
