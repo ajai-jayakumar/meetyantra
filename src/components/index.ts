@@ -1,4 +1,6 @@
+export { default as Providers } from './common/Providers';
 export { default as Referral } from './common/Referral/Referral';
+export { default as Signup } from './common/Signup/Signup';
 export { default as SelectTopicPlaceholder } from './feature/ChatBot/SelectTopicPlaceholder';
 export { default as ChatTopics } from './feature/Home/ChatTopics';
 export { default as TopBar } from './feature/Home/TopBar';
