@@ -4,7 +4,7 @@ import { signIn, useSession } from 'next-auth/react';
 
 import { Button } from '@/components/ui/button';
 import { SocialLoginOptions, SocialSignupOptions } from '@/lib/data/SideNavBar';
-import { redirectToHomePage } from '@/lib/utils';
+// import { redirectToHomePage } from '@/lib/utils';
 
 type Props = { loginFlow: string };
 
@@ -12,7 +12,7 @@ export default function SocialLoginButton(props: Props) {
   const { status, data: session } = useSession();
 
   console.log({ status, session });
-  redirectToHomePage(status);
+  // redirectToHomePage(status);
 
   // useEffect(() => {
   //   // Send the ID token to your backend API for verification and authentication

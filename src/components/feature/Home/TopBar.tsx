@@ -5,15 +5,15 @@ import { signOut, useSession } from 'next-auth/react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { redirectToLoginPage } from '@/lib/utils';
+// import { redirectToLoginPage } from '@/lib/utils';
 
 const TopBar = () => {
   const { status, data: session } = useSession();
 
-  console.log({ session });
+  console.log({ status, session });
 
   // Redirecting user to the login page if the user is unauthenticated
-  redirectToLoginPage(status);
+  // redirectToLoginPage(status);
 
   return (
     <div className='mb-8 flex justify-between'>
