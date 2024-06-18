@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { signIn, useSession } from 'next-auth/react';
 
 import { Button } from '@/components/ui/button';
-import { SocialLoginOptions, SocialSignupOptions } from '@/lib/data/navbar';
+import { SocialLoginOptions, SocialSignupOptions } from '@/lib/data/SideNavBar';
 import { redirectToHomePage } from '@/lib/utils';
 
 type Props = { loginFlow: string };

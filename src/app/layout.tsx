@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <AuthProvider>
-          <div className='flex'>
+          <div className='flex h-dvh flex-row'>
             <SideNav />
             <main className='w-full p-8'>
               <header>
