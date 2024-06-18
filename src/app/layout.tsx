@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import { Providers as AuthProvider, SideNav, TopBar } from '@/components';
+import { AuthProvider, SideNav, TopBar } from '@/components';
 
-import Provider from './providers';
+import ReactQueryProvider from './ReactQueryProvider';
 
 import '@/styles/globals.css';
 
@@ -23,13 +23,13 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <AuthProvider>
-          <div className='flex h-dvh flex-row'>
+          <div className='flex'>
             <SideNav />
             <main className='w-full p-8'>
               <header>
                 <TopBar />
               </header>
-              <Provider>{children}</Provider>
+              <ReactQueryProvider>{children}</ReactQueryProvider>
             </main>
           </div>
         </AuthProvider>

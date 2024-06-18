@@ -5,12 +5,12 @@ import { ArrowLeftToLine, ArrowRightToLine } from 'lucide-react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
-import { Referral, Signup } from '@/components';
+import { Authentication, Referral } from '@/components';
 import SocialLoginButton from '@/components/feature/SocialLoginButton';
 
 import NavItem from './NavItem';
 
-const LoginSidePane = () => {
+const AuthSidePane = () => {
   const [loginFlow, setLoginFLow] = useState('login');
   return (
     <nav className='z-0 flex h-screen w-[500px] flex-col justify-between bg-slate-100 p-4'>
@@ -21,12 +21,12 @@ const LoginSidePane = () => {
         </h1>
       </div>
       <SocialLoginButton loginFlow={loginFlow} />
-      <Signup loginFlow={loginFlow} setLoginFLow={setLoginFLow} />
+      <Authentication loginFlow={loginFlow} setLoginFLow={setLoginFLow} />
     </nav>
   );
 };
 
-const NavBar = () => {
+const AppSidePane = () => {
   const [isSideBarExpanded, setIsSideBarExpanded] = useState(true);
 
   const toggleSideBar = () => {
@@ -59,9 +59,9 @@ const SideNav = () => {
   const pathname = usePathname();
   const isLoginFlow = pathname === '/login';
   if (isLoginFlow) {
-    return <LoginSidePane />;
+    return <AuthSidePane />;
   }
-  return <NavBar />;
+  return <AppSidePane />;
 };
 
 export default SideNav;

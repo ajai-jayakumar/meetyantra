@@ -41,6 +41,7 @@ export default function SocialLoginButton(props: Props) {
   // }, [status]);
 
   const socialAuthOptions = props.loginFlow === 'login' ? SocialLoginOptions : SocialSignupOptions;
+  const isLoginFlow = props.loginFlow === 'login';
 
   const handleGoogleSignIn = (event: React.FormEvent<Element>, provider: string) => {
     event.preventDefault();
@@ -49,7 +50,9 @@ export default function SocialLoginButton(props: Props) {
 
   return (
     <div>
-      <h1 className='mb-[36px] flex items-center justify-center text-[28px] font-medium dark:bg-gray-800'>Sign in</h1>
+      <h1 className='mb-[36px] flex items-center justify-center text-[28px] font-medium dark:bg-gray-800'>
+        {isLoginFlow ? 'Sign in' : 'Sign up'}
+      </h1>
       {socialAuthOptions.map(option => {
         return (
           <div key={option.name} className='mb-5 flex items-center justify-center dark:bg-gray-800'>

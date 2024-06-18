@@ -5,7 +5,7 @@ type Props = {
   setLoginFLow: any;
 };
 
-const Signup = (props: Props) => {
+const Authentication = (props: Props) => {
   // constants
   const signUpText = 'Sign up';
   const signInText = 'Sign in';
@@ -29,4 +29,4 @@ const Signup = (props: Props) => {
   );
 };
 
-export default Signup;
+export default Authentication;
