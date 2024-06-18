@@ -9,6 +9,13 @@ export interface SideNavItemProps {
   active: boolean;
 }
 
+export interface SocialLoginOption {
+  name: string;
+  label: string;
+  logoPath: string;
+  provider: string;
+}
+
 export const SideNavItems = (): SideNavItemProps[] => {
   const pathname = usePathname();
 
@@ -60,3 +67,33 @@ export const SideNavItems = (): SideNavItemProps[] => {
     },
   ];
 };
+
+export const SocialLoginOptions: SocialLoginOption[] = [
+  {
+    name: 'Google Login',
+    label: 'Sign in with Google',
+    logoPath: 'https://www.svgrepo.com/show/475656/google-color.svg',
+    provider: 'google',
+  },
+  {
+    name: 'Microsoft Login',
+    label: 'Sign in with Microsoft',
+    logoPath: 'https://www.svgrepo.com/show/452062/microsoft.svg',
+    provider: 'azure-ad',
+  },
+];
+
+export const SocialSignupOptions: SocialLoginOption[] = [
+  {
+    name: 'Google Login',
+    label: 'Sign up with Google',
+    logoPath: 'https://www.svgrepo.com/show/475656/google-color.svg',
+    provider: 'google',
+  },
+  {
+    name: 'Microsoft Login',
+    label: 'Sign up with Microsoft',
+    logoPath: 'https://www.svgrepo.com/show/452062/microsoft.svg',
+    provider: 'azure-ad',
+  },
+];

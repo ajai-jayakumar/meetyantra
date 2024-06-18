@@ -1,3 +1,5 @@
+export { default as Authentication } from './common/Authentication/Authentication';
+export { default as AuthProvider } from './common/AuthProvider';
 export { default as Referral } from './common/Referral/Referral';
 export { default as SelectTopicPlaceholder } from './feature/ChatBot/SelectTopicPlaceholder';
 export { default as ChatTopics } from './feature/Home/ChatTopics';
