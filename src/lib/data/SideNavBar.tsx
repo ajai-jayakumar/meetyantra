@@ -14,6 +14,7 @@ export interface SocialLoginOption {
   label: string;
   logoPath: string;
   provider: string;
+  authPath: string;
 }
 
 export const SideNavItems = (): SideNavItemProps[] => {
@@ -74,12 +75,14 @@ export const SocialLoginOptions: SocialLoginOption[] = [
     label: 'Sign in with Google',
     logoPath: 'https://www.svgrepo.com/show/475656/google-color.svg',
     provider: 'google',
+    authPath: 'https://accounts.google.com/o/oauth2/auth',
   },
   {
     name: 'Microsoft Login',
     label: 'Sign in with Microsoft',
     logoPath: 'https://www.svgrepo.com/show/452062/microsoft.svg',
     provider: 'azure-ad',
+    authPath: 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize',
   },
 ];
 
@@ -89,11 +92,13 @@ export const SocialSignupOptions: SocialLoginOption[] = [
     label: 'Sign up with Google',
     logoPath: 'https://www.svgrepo.com/show/475656/google-color.svg',
     provider: 'google',
+    authPath: '',
   },
   {
     name: 'Microsoft Login',
     label: 'Sign up with Microsoft',
     logoPath: 'https://www.svgrepo.com/show/452062/microsoft.svg',
     provider: 'azure-ad',
+    authPath: 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize',
   },
 ];

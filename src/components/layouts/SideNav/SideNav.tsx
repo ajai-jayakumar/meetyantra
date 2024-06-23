@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowLeftToLine, ArrowRightToLine } from 'lucide-react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 import { Authentication, Referral } from '@/components';
 import SocialLoginButton from '@/components/feature/SocialLoginButton';
@@ -28,6 +29,33 @@ const AuthSidePane = () => {
 
 const AppSidePane = () => {
   const [isSideBarExpanded, setIsSideBarExpanded] = useState(true);
+
+  const { status, data: session } = useSession();
+
+  console.log({ status, session });
+  // redirectToHomePage(status);
+
+  useEffect(() => {
+    // Send the ID token to your backend API for verification and authentication
+    fetch('http://127.0.0.1:8000/user', {
+      credentials: 'include', // Include this line to send and receive cookies
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log({ data });
+        // if (data.status === 'success') {
+        //   // The authentication was successful, and the cookie has been set
+        //   console.log('Authentication successful');
+        //   redirectToHomePage(status);
+        // } else {
+        //   // There was an error during the authentication process
+        //   console.log('Authentication error:', data.message);
+        // }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, [status]);
 
   const toggleSideBar = () => {
     setIsSideBarExpanded(!isSideBarExpanded);
